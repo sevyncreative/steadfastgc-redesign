@@ -197,3 +197,17 @@ footer{border-top:1px solid #ffffff30;background:#142c38}
 .house-canvas .house-windows polygon{transition:fill 1.2s}
 [data-time=night] .house-canvas .house-windows polygon{fill:#eac68b}
 @media(prefers-reduced-motion:reduce){.house-canvas .house-windows polygon{transition:none}}
+
+/* Place product controls outside the model with unobtrusive leader lines. */
+.house-canvas .hot-solar{left:20.56%;top:21.77%}
+.house-canvas .hot-battery{left:81.11%;top:35.48%}
+.house-canvas .hot-charger{left:63.33%;top:86.29%}
+.product-leaders{pointer-events:none;color:#496774}
+.product-leaders>*{opacity:.45;transition:opacity .3s,stroke .3s}
+[data-energy=solar] .leader-solar,
+[data-energy=battery] .leader-battery,
+[data-energy=charger] .leader-charger{opacity:.9;stroke:#b27643}
+[data-time=night] .product-leaders{color:#a8bec9}
+[data-time=night][data-energy=solar] .leader-solar,
+[data-time=night][data-energy=battery] .leader-battery,
+[data-time=night][data-energy=charger] .leader-charger{stroke:#edb782}
