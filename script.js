@@ -9,16 +9,44 @@ window.addEventListener('message',event=>{document.querySelectorAll('.gallery-em
 const heroVideo=document.querySelector('.hero-video');
 if(heroVideo){
  const words=[...document.querySelectorAll('.hero-word')];
+ const cycle=document.querySelector('.hero-cycle');
+ const reel=document.createElement('span');
+ reel.className='hero-reel';
+ // Invisible copies reserve the tallest phrase at every screen width.
+ words.forEach(word=>{
+  const sizer=document.createElement('span');
+  sizer.className='hero-sizer';
+  sizer.textContent=word.textContent;
+  cycle.append(sizer);
+  word.classList.remove('is-active');
+  reel.append(word);
+ });
+ reel.append(words[0].cloneNode(true));
+ cycle.append(reel);
  const toggle=document.querySelector('.hero-motion');
  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
  let activeWord=0,paused=reduceMotion.matches,timer;
+ function settleReel(){
+  reel.classList.add('is-resetting');
+  activeWord%=words.length;
+  reel.style.transform=`translateY(-${activeWord*100}%)`;
+  void reel.offsetHeight;
+  reel.classList.remove('is-resetting');
+ }
+ reel.addEventListener('transitionend',event=>{
+  if(event.target===reel&&event.propertyName==='transform'&&activeWord===words.length)settleReel();
+ });
  function syncHeroMotion(){
   clearInterval(timer);
   toggle.setAttribute('aria-label',paused?'Play hero animation':'Pause hero animation');
   toggle.innerHTML=paused?'Play animation <span aria-hidden="true">▶</span>':'Pause animation <span aria-hidden="true">Ⅱ</span>';
-  if(paused||document.hidden){heroVideo.pause();return}
+  if(paused||document.hidden){heroVideo.pause();settleReel();return}
   heroVideo.play().catch(()=>{});
-  timer=setInterval(()=>{words[activeWord].classList.remove('is-active');activeWord=(activeWord+1)%words.length;words[activeWord].classList.add('is-active')},3400);
+  timer=setInterval(()=>{
+   if(activeWord===words.length)settleReel();
+   activeWord++;
+   reel.style.transform=`translateY(-${activeWord*100}%)`;
+  },3400);
  }
  toggle.addEventListener('click',()=>{paused=!paused;syncHeroMotion()});
  reduceMotion.addEventListener('change',event=>{paused=event.matches;syncHeroMotion()});
