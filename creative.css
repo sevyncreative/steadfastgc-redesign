@@ -193,3 +193,7 @@ footer{border-top:1px solid #ffffff30;background:#142c38}
 [data-time=night] .house-canvas .path-battery{opacity:.8;animation:energy-flow 3s linear infinite}
 .motion-paused .house-canvas .energy-paths polyline{animation-play-state:paused}
 @media(prefers-reduced-motion:reduce){.house-canvas .energy-paths polyline{animation:none!important}}
+
+.house-canvas .house-windows polygon{transition:fill 1.2s}
+[data-time=night] .house-canvas .house-windows polygon{fill:#eac68b}
+@media(prefers-reduced-motion:reduce){.house-canvas .house-windows polygon{transition:none}}
