@@ -101,7 +101,7 @@ html{scroll-padding-top:32px}
 .practice-row>img{position:absolute;right:45px;top:-40px;width:140px;height:150px;object-fit:cover;opacity:0;transform:rotate(5deg) translateY(10px);transition:.35s;pointer-events:none;box-shadow:0 12px 30px #142c3820}
 @media(hover:hover){.practice-row:hover>img{opacity:1;transform:rotate(5deg) translateY(0)}}
 .estimate{border-top:1px solid var(--line)}
-.estimate-panel{border-top:1px solid var(--line);background:#faf9f4}
+.estimate-panel{border-top:1px solid var(--line);background:#ffffff}
 footer{border-top:1px solid #ffffff30;background:#142c38}
 .footer-call{font-size:clamp(48px,7vw,110px)}
 .footer-top .eyebrow{font-family:monospace;font-weight:400}
