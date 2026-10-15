@@ -24,7 +24,9 @@ if(experience) {
   experience.querySelector('.energy-category').textContent=product.category;
   experience.querySelector('.energy-name').textContent=product.name;
   const image=experience.querySelector('.energy-product');
+  image.classList.remove('is-changing');
   image.src=product.image;image.alt='Tesla '+product.name;
+  if(!motion.matches){void image.offsetWidth;image.classList.add('is-changing')}
   image.style.objectFit=key==='battery'?'contain':'cover';
   experience.querySelector('.energy-description').textContent=product.description;
   const link=experience.querySelector('.energy-link');
@@ -34,11 +36,19 @@ if(experience) {
  }
  controls.forEach(button=>button.addEventListener('click',()=>selectProduct(button.dataset.product)));
  const dayToggle=experience.querySelector('.day-toggle');
+ function updateSceneStatus(){
+  const night=experience.dataset.time==='night';
+  const key=experience.dataset.energy;
+  const labels={solar:'Daylight / Solar generation',battery:'Energy storage / Powerwall',charger:'Home charging / Wall Connector'};
+  experience.querySelector('.scene-state').textContent=night?'Night / Stored energy':labels[key];
+ }
+ controls.forEach(button=>button.addEventListener('click',updateSceneStatus));
  dayToggle.addEventListener('click',()=>{
   const night=experience.dataset.time!=='night';
   experience.dataset.time=night?'night':'day';
   dayToggle.setAttribute('aria-pressed',String(night));
   dayToggle.textContent=night?'Day view ☀':'Night view ◐';
+  updateSceneStatus();
  });
 }
 const motionButton=document.querySelector('.hero-motion');

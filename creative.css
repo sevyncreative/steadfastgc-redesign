@@ -128,3 +128,52 @@ footer{border-top:1px solid #ffffff30;background:#142c38}
 @media(max-width:760px){.header{height:82px}.header .brand img{width:210px}.header nav{top:81px}.video-hero{height:calc(100svh - 82px);min-height:650px}.video-hero-content>.hero-kicker{font-size:8px;margin-bottom:28px}.hero-cycle{font-size:clamp(36px,9vw,62px);min-height:2.25em;margin-bottom:16px}.hero-company{font-size:clamp(36px,10vw,72px)}.hero-company>span{font-size:10px;letter-spacing:.23em}.hero-description{font-size:14px}.hero-actions{gap:20px;font-size:11px}.hero-primary{padding:13px 16px}.editorial-work{padding-block:45px 65px}.folio-line{font-size:8px}.editorial-heading{margin:40px 0;align-items:start;gap:25px}.editorial-heading h2{font-size:72px}.editorial-heading>div{max-width:155px;padding-top:8px}.editorial-heading p{font-size:12px;margin-bottom:20px}.editorial-heading .text-link{font-size:10px;gap:10px}.feature-tahoe,.feature-kitchen{grid-template-columns:1fr;gap:30px}.feature-tahoe .feature-main{min-height:0;height:550px}.feature-side{padding-top:0}.feature-side figure{float:right;width:42%;margin:0 0 20px 20px}.feature-side figure img{height:200px}.project-heading h3{font-size:54px;margin:20px 0 25px}.feature-side>p{font-size:13px}.feature-side .text-link{font-size:12px}.feature-kitchen{margin-top:65px}.feature-kitchen .feature-main{height:360px;grid-row:1}.drawing-note{margin-top:30px}.energy-lab{padding-block:40px}.energy-heading{margin:35px 0;align-items:end;gap:20px}.energy-heading h2{font-size:43px}.energy-heading>img{width:105px}.scene-toolbar{top:16px;left:15px;right:15px}.scene-toolbar .eyebrow{font-size:8px}.day-toggle{font-size:10px;padding:6px 9px}.hotspot{width:36px;height:36px;font-size:10px}.scene-caption{font-size:8px;bottom:12px;left:15px}.energy-info{padding:20px}.energy-panel{display:block}.energy-product-image{height:200px;margin-bottom:20px}.energy-tabs button{font-size:9px}.energy-description{font-size:13px}.energy-name{font-size:38px}.practice .folio-line{margin-bottom:35px}.practice-layout{grid-template-columns:1fr;gap:40px}.practice-intro h2{font-size:46px}.practice-intro p{margin-top:22px}.practice-row h3{font-size:27px}.practice-row>img{display:none}.footer-call{font-size:48px}.footer-call span{font-size:46px}.story-stages{grid-template-columns:1fr}.story-stages img{height:auto;max-height:540px;object-fit:contain;background:#e3e4dd}.story-strip>h2{font-size:34px}.creative-story .roof-gallery-grid{grid-template-columns:1fr;gap:30px}.creative-story .roof-gallery-grid>figure:nth-child(even){margin-top:0}.creative-story .project-detail .roof-gallery-grid img{height:auto;max-height:600px;object-fit:contain}.creative-story .page-intro h1{font-size:64px}}
 @media(max-width:380px){.editorial-heading{display:block}.editorial-heading>div{max-width:260px;margin-top:25px}.energy-heading{display:block}.energy-heading>img{margin-top:24px;width:135px}.hero-actions{gap:14px}.hero-primary{gap:12px}.header .brand img{width:190px}}
 @media(prefers-reduced-motion:reduce){.reveal.is-awaiting{opacity:1;transform:none}.energy-paths path{animation:none!important}.house-stage,.house-windows{transition:none!important}}
+
+/* Refined architectural model: markers share the SVG coordinate space. */
+.house-stage{background:#e9ece5;justify-content:center;padding:78px 10px 58px;overflow:hidden}
+.house-canvas{position:relative;width:100%;aspect-ratio:900/620;flex:none}
+.house-canvas>svg{display:block;width:100%;height:100%;overflow:visible}
+.house-hotspots{inset:0}
+.hot-solar{left:49%;top:39%}
+.hot-battery{left:69.8%;top:56.8%}
+.hot-charger{left:78.4%;top:61.5%}
+.hotspot{width:34px;height:34px;font-size:9px;font-weight:600;border:1px solid #c5d3d3;background:#f9fbf7;color:#244352;box-shadow:0 2px 10px #142c3826,0 0 0 5px #ffffff42;transition:background .35s,box-shadow .35s,transform .35s}
+.hotspot:hover{transform:translate(-50%,-50%) scale(1.12)}
+.hotspot[aria-pressed=true]{background:#ed9b5d;border-color:#f2c19c;color:#193847;box-shadow:0 2px 14px #e8752540,0 0 0 6px #ed9b5d25}
+.house-stage .scene-toolbar{top:24px;left:25px;right:25px}
+.scene-toolbar .eyebrow{font-size:9px;letter-spacing:.14em}
+.day-toggle{border-color:#78909755;border-radius:30px;padding:8px 15px;min-height:36px;font-size:10px;transition:background .3s}
+.day-toggle:hover{background:#ffffff30}
+.scene-caption{display:flex;justify-content:space-between;align-items:center;gap:14px;bottom:23px;left:25px;right:25px;font-size:8px;letter-spacing:.025em;opacity:1}
+.scene-caption>span:last-child{opacity:.55}
+.scene-status{display:flex;align-items:center;gap:7px}
+.status-dot{height:5px;width:5px;border-radius:50%;background:#bd702e;box-shadow:0 0 0 3px #bd702e12}
+.energy-experience{border-color:#ffffff20}
+.energy-info{background:#172f3b;padding:32px}
+.energy-product-image{background:#e8eae5;border-radius:2px}
+.energy-name{letter-spacing:-.045em}
+.energy-tabs button{transition:color .25s,box-shadow .25s}
+.solar-outline{opacity:0;transition:opacity .65s}
+[data-energy=solar] .solar-outline{opacity:.6}
+.energy-paths{stroke:#e5a064;stroke-width:2}
+.energy-paths path{stroke-dasharray:2 13;opacity:0;transition:opacity .5s}
+[data-energy=solar] .path-solar,[data-energy=battery] .path-battery,[data-energy=charger] .path-charger{opacity:.85;animation:energy-flow 3s linear infinite}
+@keyframes energy-flow{to{stroke-dashoffset:-90}}
+.battery-indicator{transition:stroke .7s}
+[data-energy=battery] .battery-indicator{stroke:#efaa71}
+.night-ground-light{opacity:0;transition:opacity 1.2s}
+[data-time=night] .night-ground-light{opacity:1}
+[data-time=night] .house-stage{background:#1b303e;color:#c4d2d8}
+[data-time=night] .house-windows{fill:#eac68b;stroke:#a8b9b8}
+[data-time=night] .status-dot{background:#e3b87b;box-shadow:0 0 9px #e3b87b66}
+[data-time=night] .solar-outline{opacity:0}
+[data-time=night] .path-solar{opacity:0;animation:none}
+[data-time=night] .path-battery{opacity:.8}
+[data-time=night] .landscape{opacity:.6}
+.house-windows,.landscape{transition:fill 1.2s,opacity 1.2s}
+.energy-product.is-changing{animation:product-arrival .4s ease both}
+@keyframes product-arrival{from{opacity:.4;transform:translateY(5px)}to{opacity:1;transform:none}}
+@media(max-width:1100px){.energy-info{padding:24px}.house-stage{padding-inline:0}}
+@media(max-width:800px){.house-stage{padding:65px 15px 48px}.house-canvas>svg{margin:0}.hot-solar{top:39%}.hot-battery{top:56.8%}.hot-charger{top:61.5%}}
+@media(max-width:760px){.house-stage{padding:65px 0 55px}.house-stage .scene-toolbar{top:18px;left:16px;right:16px}.scene-toolbar .eyebrow{font-size:8px}.scene-caption{left:16px;right:16px;bottom:18px;font-size:7px;gap:8px}.hotspot{width:30px;height:30px;font-size:8px;box-shadow:0 2px 8px #142c3826,0 0 0 3px #ffffff42}.hotspot[aria-pressed=true]{box-shadow:0 0 0 4px #ed9b5d25}.energy-info{padding:22px}.day-toggle{min-height:38px}}
+@media(prefers-reduced-motion:reduce){.energy-product.is-changing{animation:none}.house-windows,.landscape,.night-ground-light,.solar-outline{transition:none!important}}
