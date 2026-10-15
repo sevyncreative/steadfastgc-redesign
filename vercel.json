@@ -12,8 +12,13 @@
         {
           "key": "Referrer-Policy",
           "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
         }
       ]
     }
-  ]
+  ],
+  "ignoreCommand": "node -e \"process.exit(process.env.VERCEL_PROJECT_ID === 'prj_xEQ40MJ6Prm49PLWKoofWBnBtXCo' && process.env.VERCEL_GIT_COMMIT_REF === 'creative-test' ? 1 : 0)\""
 }
