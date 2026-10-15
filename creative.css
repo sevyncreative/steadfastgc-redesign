@@ -177,3 +177,19 @@ footer{border-top:1px solid #ffffff30;background:#142c38}
 @media(max-width:800px){.house-stage{padding:65px 15px 48px}.house-canvas>svg{margin:0}.hot-solar{top:39%}.hot-battery{top:56.8%}.hot-charger{top:61.5%}}
 @media(max-width:760px){.house-stage{padding:65px 0 55px}.house-stage .scene-toolbar{top:18px;left:16px;right:16px}.scene-toolbar .eyebrow{font-size:8px}.scene-caption{left:16px;right:16px;bottom:18px;font-size:7px;gap:8px}.hotspot{width:30px;height:30px;font-size:8px;box-shadow:0 2px 8px #142c3826,0 0 0 3px #ffffff42}.hotspot[aria-pressed=true]{box-shadow:0 0 0 4px #ed9b5d25}.energy-info{padding:22px}.day-toggle{min-height:38px}}
 @media(prefers-reduced-motion:reduce){.energy-product.is-changing{animation:none}.house-windows,.landscape,.night-ground-light,.solar-outline{transition:none!important}}
+
+/* Shared isometric camera: markers use projected model coordinates. */
+.house-canvas .hot-solar{left:41.67%;top:31.93%}
+.house-canvas .hot-battery{left:67%;top:45.65%}
+.house-canvas .hot-charger{left:70.1%;top:55.86%}
+.house-canvas .solar-outline{stroke-width:.7;stroke:#acbfc8}
+[data-energy=solar] .house-canvas .solar-outline{opacity:.35}
+[data-time=night] .house-canvas .solar-outline{opacity:0}
+.house-canvas .energy-paths polyline{opacity:0;stroke-dasharray:2 13;transition:opacity .5s}
+[data-energy=solar] .house-canvas .path-solar,
+[data-energy=battery] .house-canvas .path-battery,
+[data-energy=charger] .house-canvas .path-charger{opacity:.85;animation:energy-flow 3s linear infinite}
+[data-time=night] .house-canvas .path-solar{opacity:0;animation:none}
+[data-time=night] .house-canvas .path-battery{opacity:.8;animation:energy-flow 3s linear infinite}
+.motion-paused .house-canvas .energy-paths polyline{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.house-canvas .energy-paths polyline{animation:none!important}}
