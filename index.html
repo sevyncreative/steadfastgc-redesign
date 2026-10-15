@@ -14,7 +14,7 @@
 <div class="energy-experience reveal" data-energy="solar" data-time="day">
 <div class="house-stage"><div class="scene-toolbar"><span class="eyebrow">Explore the system</span><button class="day-toggle" type="button" aria-pressed="false">Night view <span aria-hidden="true">◐</span></button></div>
 <div class="house-canvas"><svg viewBox="0 0 900 620" role="img" aria-labelledby="house-title house-description">
-<title id="house-title">A connected home, in detail</title><desc id="house-description">An architectural model showing solar roof tiles, a home battery, and a vehicle charging station. Use the numbered buttons to explore each product.</desc>
+<title id="house-title">A connected home, in detail</title><desc id="house-description">An architectural model showing solar roof tiles, a home battery, and a Cybertruck at a vehicle charging station. Use the numbered buttons to explore each product.</desc>
 <defs>
 <linearGradient id="site-surface" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f2f0e8"/><stop offset="1" stop-color="#c8d1c9"/></linearGradient>
 <linearGradient id="front-wall" x2="0" y2="1"><stop stop-color="#d9ddd4"/><stop offset="1" stop-color="#a9b8b5"/></linearGradient>
@@ -56,15 +56,39 @@
 <g fill="#e2f0ec" opacity=".12"><path d="M244 329 286 350 244 379Z"/><path d="M313 363 353 382 313 412Z"/><path d="M454 407 486 392 454 465Z"/></g>
 <path d="M450 485 530 448 538 452 458 489Z" fill="#a1afa9"/>
 <g class="battery-component"><path d="M615 326 643 313 650 317V376L619 391 611 387V336Z" fill="#a1b4b7" stroke="#7f969b" stroke-width=".8"/><path d="M616 331 641 319Q646 317 646 323V374Q646 379 641 381L616 393Q611 395 611 389V339Q611 333 616 331Z" fill="url(#battery-face)" stroke="#9cabae"/><path d="M619 341 638 332" stroke="#3c5660" stroke-width="2.5"/><path class="battery-indicator" d="M620 346 637 338" stroke="#7bbda8" stroke-width="1.5"/><text x="620" y="368" font-family="sans-serif" font-size="3.5" letter-spacing="1" fill="#73858a" transform="rotate(-25 620 368)">TESLA</text></g>
-<g class="charger-component"><path d="M704 384v60" stroke="#526b72" stroke-width="6"/><path d="M695 438 706 433 718 439 707 445Z" fill="#80948f"/><path d="M698 365q0-5 5-6l8 4q4 2 4 6v23q0 5-5 5l-8-4q-4-2-4-6Z" fill="#f2f4ee" stroke="#8da1a6"/><path d="M703 368v14" stroke="#334e5a" stroke-width="3"/><path class="charging-cable" d="M714 386C742 409 723 444 696 448" fill="none" stroke="#354d58" stroke-width="3" stroke-linecap="round"/></g>
-<g class="vehicle"><path d="M539 462 604 431 696 475 631 507Z" fill="#253c48" opacity=".18" filter="url(#soft-shadow)"/><path d="M539 455 600 426Q605 423 612 426L693 465Q700 469 698 477L693 487 638 514Q632 517 625 513L543 473Q538 470 539 455Z" fill="url(#vehicle-body)" stroke="#8b9fa5" stroke-width="1"/>
-<path d="M557 446 598 427 658 456 615 477Z" fill="#b9c8cb" stroke="#8da5ad"/>
-<path d="M571 443 598 431 642 452 615 465Z" fill="url(#window-glass)" stroke="#7c969f"/>
-<path d="M557 446 615 477 615 489 548 457Z" fill="#36515f" stroke="#a1b7bd"/>
-<path d="M557 451 612 477" stroke="#91a8af" stroke-width="1"/>
-<ellipse cx="562" cy="479" rx="8" ry="12" fill="#263b45" transform="rotate(-25 562 479)"/><ellipse cx="562" cy="479" rx="3.5" ry="6" fill="#9caeb2" transform="rotate(-25 562 479)"/>
-<ellipse cx="671" cy="495" rx="8" ry="12" fill="#263b45" transform="rotate(25 671 495)"/><ellipse cx="671" cy="495" rx="3.5" ry="6" fill="#9caeb2" transform="rotate(25 671 495)"/>
-<path d="M641 503 652 498M680 484 689 480" stroke="#f8ffff" stroke-width="3" stroke-linecap="round"/>
+<g class="charger-component"><path d="M704 384v60" stroke="#526b72" stroke-width="6"/><path d="M695 438 706 433 718 439 707 445Z" fill="#80948f"/><path d="M698 365q0-5 5-6l8 4q4 2 4 6v23q0 5-5 5l-8-4q-4-2-4-6Z" fill="#f2f4ee" stroke="#8da1a6"/><path d="M703 368v14" stroke="#334e5a" stroke-width="3"/><path class="charging-cable" d="M714 386C750 432 697 447 600 441" fill="none" stroke="#354d58" stroke-width="3" stroke-linecap="round"/></g>
+<g class="vehicle cybertruck" aria-label="Tesla Cybertruck connected to home charging">
+<title>Tesla Cybertruck</title>
+<path d="M524 473 593 439 722 497 651 534Z" fill="#162e3b" opacity=".2" filter="url(#soft-shadow)"/>
+<!-- Stainless steel body with the Cybertruck's angular roof profile. -->
+<path d="M536 455 595 427 706 457 647 485Z" fill="#bdc8ca" stroke="#7b9098" stroke-width=".9"/>
+<path d="M536 455 589 436 647 485V511L536 481Z" fill="#aab8bd" stroke="#687e88" stroke-width="1"/>
+<path d="M595 427 646 409 706 457 647 485 589 436Z" fill="#dde4e4" stroke="#879ba2" stroke-width=".9"/>
+<!-- Covered cargo bed and faceted cabin. -->
+<path d="M540 453 595 428 616 438 560 464Z" fill="#536a75" stroke="#9bafb5" stroke-width=".8"/>
+<path d="M549 454 602 431M555 458 609 435" stroke="#7e939d" stroke-width=".7"/>
+<path d="M560 464 589 436 630 472Z" fill="#233e4c" stroke="#78929f" stroke-width="1"/>
+<path d="M589 436 646 409 687 445 630 472Z" fill="#2c4857" stroke="#97abb3" stroke-width="1"/>
+<path d="M592 437 646 413 654 420 602 444Z" fill="#8da6b0" opacity=".3"/>
+<path d="M630 472 687 445 706 457 647 485Z" fill="#e1e7e6" stroke="#93a5aa" stroke-width=".8"/>
+<path d="M536 455 560 464 630 472 647 485V511L536 481Z" fill="#b5c1c5" stroke="#738994" stroke-width=".8"/>
+<path d="M540 463 645 492V501L540 473Z" fill="#d2dadb" opacity=".55"/>
+<!-- Door seams, black wheel arches, and dark aero wheels. -->
+<path d="M584 472v22m28-15v23" stroke="#7f939b" stroke-width=".8"/>
+<path d="M589 477 597 479m18 5 7 2" stroke="#526c79" stroke-width="1.2"/>
+<path d="M544 482v-12l9-6 12 3 8 11v12m41 11v-13l9-6 12 4 8 12v12" fill="#314954" stroke="#607780" stroke-width="1"/>
+<ellipse cx="558" cy="481" rx="10" ry="13" fill="#182e39" transform="rotate(-18 558 481)"/>
+<ellipse cx="558" cy="481" rx="5.5" ry="8" fill="#566f7c" transform="rotate(-18 558 481)"/>
+<path d="M554 476 561 476 563 483 557 487 552 481Z" fill="#273f4c"/>
+<ellipse cx="628" cy="502" rx="10" ry="13" fill="#182e39" transform="rotate(-18 628 502)"/>
+<ellipse cx="628" cy="502" rx="5.5" ry="8" fill="#566f7c" transform="rotate(-18 628 502)"/>
+<path d="M624 497 631 497 633 504 627 508 622 502Z" fill="#273f4c"/>
+<!-- Full-width front light bar and angular bumper. -->
+<path d="M647 485 706 457V483L647 511Z" fill="#c4ced0" stroke="#7d939d" stroke-width=".9"/>
+<path d="M649 488 704 462" stroke="#efffff" stroke-width="2.8"/>
+<path d="M648 502 705 475V483L648 510Z" fill="#334d5c"/>
+<path d="M652 500 659 497m34-16 8-4" stroke="#d8eeee" stroke-width="1.4"/>
+<path d="M537 460 544 462" stroke="#d87965" stroke-width="2"/>
 </g>
 <g class="landscape"><path d="M189 386 205 379 223 388 207 395Z" fill="#8da58c"/><path d="M194 377v9m7-15v16m7-12v15m7-10v10" stroke="#667f6a" stroke-width="4" stroke-linecap="round"/><path d="M291 449 315 438 340 450 316 461Z" fill="#9cad9a"/><path d="M303 437v12m8-18v20m8-15v20m8-15v12" stroke="#718b73" stroke-width="5" stroke-linecap="round"/></g>
 <g class="energy-paths" fill="none" stroke-linecap="round"><path class="path-solar" d="M481 286 556 322 627 352"/><path class="path-battery" d="M627 381V416L493 478"/><path class="path-charger" d="M627 416 704 453 704 399"/></g>
