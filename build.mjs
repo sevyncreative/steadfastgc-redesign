@@ -25,6 +25,7 @@ for(const file of publishFiles){
  await mkdir(path.dirname(dest),{recursive:true});
  await cp(file,dest);
 }
+await sharp(path.join(root,'assets/vertical_mix_sgc.png')).resize(148,148,{fit:'contain',background:'#f4f1e9'}).extend({top:16,bottom:16,left:16,right:16,background:'#f4f1e9'}).png().toFile(path.join(out,'apple-touch-icon.png'));
 const candidates=sourceFiles.filter(p=>/[/\\]assets[/\\](roofing|kitchen)[/\\]/.test(p)||/[/\\]assets[/\\]tesla-(solar\.jpg|wall-connector\.jpg|powerwall-product\.png)$/.test(p));
 const variants=new Map();
 let originalBytes=0,smallBytes=0;
@@ -50,6 +51,7 @@ for(const file of candidates){
 for(const file of publishFiles.filter(p=>p.endsWith('.html'))){
  const dest=path.join(out,path.relative(root,file));
  let html=await readFile(dest,'utf8');
+ if(!html.includes('rel="apple-touch-icon"'))html=html.replace('</head>','<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"></head>');
  html=html.replace(/<img\b[^>]*>/g,tag=>{
   const src=tag.match(/\bsrc="([^"]+)"/)?.[1];
   const variant=variants.get(src);
