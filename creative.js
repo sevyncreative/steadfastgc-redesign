@@ -64,9 +64,10 @@ motion.addEventListener('change',syncMotion);syncMotion();
  const status=document.querySelector('.estimator-status');
  if(!frame||!status)return;
  let timer;
- const settle=()=>{clearTimeout(timer);status.textContent='Use the calculator below, or open it in a new tab.'};
+ let loaded=false;
+ const settle=()=>{loaded=true;clearTimeout(timer);status.textContent='Use the calculator below, or open it in a new tab.'};
  frame.addEventListener('load',settle,{once:true});
- const start=()=>{timer=setTimeout(()=>{status.textContent='The calculator is taking longer to load. You can open it in a new tab below.'},15000)};
+ const start=()=>{if(loaded)return;timer=setTimeout(()=>{status.textContent='The calculator is taking longer to load. You can open it in a new tab below.'},15000)};
  if('IntersectionObserver' in window){
   const observer=new IntersectionObserver(entries=>{
    if(entries.some(entry=>entry.isIntersecting)){start();observer.disconnect()}
