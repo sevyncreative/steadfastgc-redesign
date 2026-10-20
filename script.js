@@ -25,7 +25,9 @@ if(heroVideo){
  cycle.append(reel);
  const toggle=document.querySelector('.hero-motion');
  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
- let activeWord=0,paused=reduceMotion.matches,timer;
+ let activeWord=0,paused=reduceMotion.matches||Boolean(navigator.connection?.saveData),timer;
+ let mediaReady=false,heroVisible=true;
+ function loadVideo(){const source=heroVideo.querySelector('source[data-src]');if(source){source.src=source.dataset.src;source.removeAttribute('data-src');heroVideo.load()}}
  function settleReel(){
   reel.classList.add('is-resetting');
   activeWord%=words.length;
@@ -40,7 +42,8 @@ if(heroVideo){
   clearInterval(timer);
   toggle.setAttribute('aria-label',paused?'Play hero animation':'Pause hero animation');
   toggle.innerHTML=paused?'Play animation <span aria-hidden="true">▶</span>':'Pause animation <span aria-hidden="true">Ⅱ</span>';
-  if(paused||document.hidden){heroVideo.pause();settleReel();return}
+  if(paused||document.hidden||!heroVisible||!mediaReady){heroVideo.pause();settleReel();return}
+  loadVideo();
   heroVideo.play().catch(()=>{});
   timer=setInterval(()=>{
    if(activeWord===words.length)settleReel();
@@ -48,8 +51,11 @@ if(heroVideo){
    reel.style.transform=`translateY(-${activeWord*100}%)`;
   },3400);
  }
- toggle.addEventListener('click',()=>{paused=!paused;syncHeroMotion()});
+ toggle.addEventListener('click',()=>{paused=!paused;mediaReady=true;syncHeroMotion()});
  reduceMotion.addEventListener('change',event=>{paused=event.matches;syncHeroMotion()});
  document.addEventListener('visibilitychange',syncHeroMotion);
+ if('IntersectionObserver' in window){new IntersectionObserver(entries=>{heroVisible=entries[0].isIntersecting;syncHeroMotion()}).observe(heroVideo)}
+ const begin=()=>{const ready=()=>{mediaReady=true;syncHeroMotion()};if('requestIdleCallback' in window)requestIdleCallback(ready,{timeout:1500});else setTimeout(ready,100)};
+ if(document.readyState==='complete')begin();else window.addEventListener('load',begin,{once:true});
  syncHeroMotion();
 }

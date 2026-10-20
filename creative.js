@@ -25,7 +25,7 @@ if(experience) {
   experience.querySelector('.energy-name').textContent=product.name;
   const image=experience.querySelector('.energy-product');
   image.classList.remove('is-changing');
-  image.src=product.image;image.alt='Tesla '+product.name;
+  image.removeAttribute('srcset');image.removeAttribute('sizes');image.src=product.image;image.alt='Tesla '+product.name;
   if(!motion.matches){void image.offsetWidth;image.classList.add('is-changing')}
   image.style.objectFit=key==='battery'?'contain':'cover';
   experience.querySelector('.energy-description').textContent=product.description;
