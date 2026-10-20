@@ -211,3 +211,86 @@ footer{border-top:1px solid #ffffff30;background:#142c38}
 [data-time=night][data-energy=solar] .leader-solar,
 [data-time=night][data-energy=battery] .leader-battery,
 [data-time=night][data-energy=charger] .leader-charger{stroke:#edb782}
+
+/* Homepage readability and interaction refinements. */
+.creative-home{--home-heading:clamp(2.75rem,5vw,4.75rem)}
+.creative-home .service-overview{padding-block:64px 48px}
+.creative-home .service-overview h1{font-size:clamp(2.25rem,4.6vw,4.25rem);line-height:1.12}
+.creative-home .service-overview>.lede{max-width:65ch;margin-top:24px;font-size:18px}
+.creative-home .editorial-work{padding-top:32px}
+.creative-home .editorial-heading h2,.creative-home .energy-heading h2,
+.creative-home .practice-intro h2,.creative-home .estimate h2,
+.creative-home .project-questions h2{font-size:var(--home-heading);line-height:1.08;letter-spacing:-.045em}
+.creative-home .project-heading h3{font-size:clamp(2.5rem,4vw,3.75rem);line-height:1.1}
+.creative-home .eyebrow,.creative-home .folio-line,.creative-home .drawing-note,
+.creative-home .feature-side figcaption,.creative-home .scene-caption,
+.creative-home .scene-toolbar .eyebrow,.creative-home .energy-category,
+.creative-home .video-hero-content>.hero-kicker,.creative-home .video-hero-bottom p,
+.creative-home .footer-bottom{font-size:12px;line-height:1.5}
+.creative-home .hero-company>span{font-size:12px}
+.creative-home .header nav,.creative-home .menu-toggle,
+.creative-home .hero-actions,.creative-home .hero-motion,.creative-home .text-link,
+.creative-home .editorial-heading .text-link,.creative-home .feature-side .text-link,
+.creative-home .energy-panel .text-link,.creative-home .energy-all,
+.creative-home .project-open,.creative-home .footer-grid a:not(.brand){font-size:14px}
+.creative-home .header nav>a,.creative-home .nav-services summary{min-height:44px;display:flex;align-items:center}
+.creative-home .nav-services div{top:48px}
+.creative-home .hero-description,.creative-home .editorial-heading p,
+.creative-home .feature-side>p,.creative-home .energy-description,
+.creative-home .practice-intro p,.creative-home .practice-row p,
+.creative-home .estimate>div>p:not(.eyebrow){font-size:16px;line-height:1.65}
+.creative-home .hero-actions{gap:24px;flex-wrap:wrap}
+.creative-home .hero-actions a{min-height:48px}
+.creative-home .hero-motion{min-height:44px;flex-shrink:0}
+.creative-home .hotspot{width:44px;height:44px;font-size:12px}
+.creative-home .day-toggle{min-height:44px;font-size:14px}
+.creative-home .energy-tabs button{min-height:48px;font-size:14px;line-height:1.4;padding:10px 4px}
+.creative-home .scene-caption{flex-wrap:wrap}
+.creative-home .scene-caption>span:last-child{opacity:1}
+.creative-home .house-stage{padding-top:96px;padding-bottom:88px}
+.creative-home .scene-toolbar{flex-wrap:wrap}
+.creative-home .service-details{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;border-top:1px solid var(--line);margin-top:56px;padding-top:40px}
+.creative-home .service-details h3{font-size:24px;line-height:1.2;letter-spacing:-.025em;margin-bottom:16px}
+.creative-home .service-details p{font-size:16px;line-height:1.65}
+.creative-home .service-details a,.creative-home .estimator-fallback a{text-decoration:underline;text-underline-offset:.2em}
+.creative-home .estimator-status{font-size:14px;line-height:1.5;padding:14px 16px;margin-top:24px;background:var(--paper);color:var(--ink)}
+.creative-home .estimator-status[hidden]{display:none}
+.creative-home .estimate-panel .estimator-fallback{font-size:14px;line-height:1.6;margin-top:18px;max-width:none}
+.creative-home .estimate-panel .estimator-credit{font-size:12px}
+@media(max-width:900px){
+ .creative-home .service-details{grid-template-columns:1fr;gap:28px}
+}
+@media(max-width:760px){
+ .creative-home .video-hero{height:auto;min-height:calc(100svh - 82px);max-height:none}
+ .creative-home .video-hero-content{padding-top:48px;padding-bottom:32px}
+ .creative-home .video-hero-bottom{position:relative;bottom:auto;flex-wrap:wrap;padding:18px 0;margin-bottom:18px}
+ .creative-home .video-hero-bottom p{max-width:190px;flex:1 1 140px}
+ .creative-home .hero-actions{gap:12px 20px}
+ .creative-home .hero-actions .hero-primary{flex-basis:100%;justify-content:space-between}
+ .creative-home .hero-secondary{gap:8px}
+ .creative-home .hero-cycle{min-height:2.25em}
+ .creative-home .service-overview{padding-block:48px 32px}
+ .creative-home .service-overview>.lede{font-size:16px}
+ .creative-home .editorial-heading{display:block;margin:32px 0}
+ .creative-home .editorial-heading>div{max-width:36ch;margin-top:24px;padding-top:0}
+ .creative-home .folio-line{flex-wrap:wrap;gap:8px 16px}
+ .creative-home .folio-line>span:nth-child(2){margin-left:auto}
+ .creative-home .folio-line>span:last-child{display:none}
+ .creative-home .feature-side figure{float:none;width:100%;margin:0 0 24px}
+ .creative-home .feature-side figure img{height:240px}
+ .creative-home .feature-side figcaption{flex-wrap:wrap}
+ .creative-home .energy-heading{display:block}
+ .creative-home .energy-heading>img{width:160px;margin-top:24px}
+ .creative-home .house-stage{padding-top:110px;padding-bottom:96px}
+ .creative-home .energy-info{padding:20px}
+ .creative-home .energy-tabs{gap:4px}
+ .creative-home .energy-tabs button{overflow-wrap:normal}
+ .creative-home .nav-services div{position:static}
+ .creative-home .footer-bottom a{margin-left:0}
+}
+@media(max-width:380px){
+ .creative-home .header .brand img{width:170px}
+ .creative-home .menu-toggle{gap:8px}
+ .creative-home .energy-info{padding:16px}
+ .creative-home .hero-actions{gap:8px 16px}
+}
